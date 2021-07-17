@@ -1,0 +1,12 @@
+#include<stdio.h>
+
+int main()
+{
+   int a = 10;//申请了4个字节的空间
+   //printf("%p\n", &a);
+   int *p = &a;//p是一个变量-指针变量
+   //printf("%p\n", p);
+   *p = 20;
+   printf("a = %d\n", a);
+   return 0;
+   }
