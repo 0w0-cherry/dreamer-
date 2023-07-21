@@ -1,0 +1,12 @@
+#include<stdio.h>
+
+int main()
+{
+	char arr1[] = "abc";//自动在最后遇见结束符号\0;     a b c \0
+	char arr2[] = { 'a','b','c' }; //无结束符号，后面符号未知，因此最终打印时出现乱码
+	char arr2[] = { 'a','b','c' ,'\0'};
+	char arr3[] = "abc\0def";//只打印abc，\0为结束标志
+
+	printf("Hello World\n");
+	return 0;
+}
