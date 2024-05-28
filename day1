@@ -1,0 +1,44 @@
+//分别将1-9填入空格使答案的格式为：abc+def=ghi
+int num(int i,int j)
+{
+	int sum = i + j;
+
+	//建桶
+	int arr[10] = { 0 };
+
+	//个、十、百位数据不同
+	arr[sum % 10]++;
+	arr[(sum / 10) % 10]++;
+	arr[sum / 100]++;
+
+	arr[i % 10]++;
+	arr[(i / 10) % 10]++;
+	arr[i / 100]++;
+
+	arr[j % 10]++;
+	arr[(j / 10) % 10]++;
+	arr[j / 100]++;
+	for (int i = 1; i <= 9; i++)
+	{
+		if (arr[i] == 0)
+		{
+			return 0;
+		}
+	}
+
+	return 1;
+}
+
+int main()
+{
+	for (int i = 123; i <= 876; i++)
+	{
+		for (int j = 123; j <= 876; j++)
+		{
+
+			if (i+j<=999 && num(i,j) == 1)
+				std::cout << i << "+" << j << "=" << i+j << std::endl;
+		}
+	}
+	return 0;
+}
