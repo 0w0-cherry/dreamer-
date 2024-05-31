@@ -1,0 +1,108 @@
+#include<iostream>
+using namespace std;
+
+
+
+//简易版计算器
+void menu()
+{
+	cout << "*******************************" << endl;
+	cout << "****    1.Add     2.Sub    ****" << endl;
+	cout << "****    3.Mul     4.Div    ****" << endl;
+	cout << "****    0.Exit             ****" << endl;
+	cout << "*******************************" << endl;
+}
+double Add(double a, double b)
+{
+	return a + b;
+}
+double Sub(double a, double b)
+{
+	return a - b;
+}
+double Mul(double a, double b)
+{
+	return a * b;
+
+}
+double Div(double a, double b)
+{
+	return a / b;
+}
+int main()
+{
+	double x,y,ret;
+	int n;
+	do
+	{
+		menu();
+		cout << "请选择计算方式：" ;
+		cin >> n;
+		switch (n)
+		{
+		case 1:
+			cout << "请输入两个数：";
+			cin >> x >> y;
+			ret = Add(x, y);
+			cout << "最终答案：";
+			cout << ret<<endl;
+			break;
+		case 2:
+			cout << "请输入两个数：";
+			cin >> x >> y;
+			ret = Sub(x, y);
+			cout << "最终答案：";
+			cout << ret<<endl;
+			break;
+		case 3:
+			cout << "请输入两个数：";
+			cin >> x >> y;
+			ret = Mul(x, y);
+			cout << "最终答案：";
+			cout << ret<< endl;
+			break;
+		case 4:
+			cout << "请输入两个数：";
+			cin >> x >> y;
+			ret = Div(x, y);
+			cout << "最终答案：";
+			cout << ret<< endl;
+			break;
+		case 0:
+			cout << "退出计算器!" << endl;
+			break;
+		default:
+			cout << "选择错误，请重新选择" << endl;
+			break;
+		}
+	} while (n);
+	return 0;
+}
+//优化
+int main0()
+{
+	double x, y, ret;
+	int n;
+	double (*p[])(double, double) = { 0,Add,Sub,Mul,Div };
+	do
+	{
+		cout << "请选择计算方式";
+		cin >> n;
+		if (n >= 1 && n <= 4)
+		{
+			cout << "请输入两个数字";
+			cin >> x >> y;
+			ret = p[n](x, y);
+			cout << "最终答案为：" << ret<<endl;
+		}
+		else if (n == 0)
+		{
+			cout << "输入错误，请重新输入"<<endl;
+		}
+		else
+		{
+			cout << "退出计算器!";
+		}
+	} while (n);
+	return 0;
+}
