@@ -1,0 +1,140 @@
+#include<iostream>
+using namespace std;
+int main1()
+{
+	system("color 0a");
+	while (1)
+		cout << "0 1";
+	system("pause");
+	return 0;
+}
+/*----------------------------------*/
+//无限重复打印
+int main2()
+{
+	while (1)
+		cout << "你好 ";
+	return 0;
+}
+/*-----------------------------------------*/
+//打印100以内2的倍数,4种方法
+int main3()
+{
+	//位运算
+	for (int i = 1; i <= 100; i++)
+	{
+		if ( (i&1)  == 0)
+			cout << i << " ";
+	}
+	cout << endl;
+
+	//+
+	for (int i = 2; i <= 100; i += 2)
+		cout << i<<" ";
+	cout << endl;
+
+	//*
+	for (int i = 1; i <= 100 / 2; i++)
+		cout << i * 2<<" ";
+	cout << endl;
+
+	//%
+	for (int i = 1; i <= 100; i++)
+		if (i % 2 == 0)
+			cout << i << " ";
+	cout << endl;
+	return 0;
+}
+/*----------------------------------------*/
+//打印1000以内含数字2的数
+
+int main4()
+{
+	for (int i = 1; i <= 1000; i++)
+	{
+		int n = i;
+		while (n)
+		{
+			int a = n % 10;
+			n /= 10;
+
+			if (a == 2)
+			{
+				cout << i << " ";
+				break;
+			}
+
+		}
+	}
+	return 0;
+}
+/*---------------------------------*/
+#include<windows.h>
+int main5()
+{
+	system("cls");
+	cout << "3";
+	Sleep(1000);
+
+	system("cls");
+	cout << "2";
+	Sleep(1000);
+
+	system("cls");
+	cout << "1";
+	Sleep(1000);
+
+	system("pause");
+
+	int a = 60;
+	while (a)
+	{
+		system("cls");
+		cout << a--;
+		Sleep(1000);
+	}
+	return 0;
+}
+/*-----------------------------------*/
+//倒计时
+int main6()
+{
+	int a = 2;
+	int b = 0;
+	while (a || b)
+	{
+		system("cls");
+		printf("%02d:%02d", a, b);
+		Sleep(1000);
+		if (b == 0)
+		{
+			a--;
+			b = 60;
+		}
+		b--;
+	}
+	system("cls");
+	cout << "00:00";
+	system("pause");
+	return 0;
+}
+/*-----------------------------------------*/
+//奔跑的小人
+int main()
+{
+	for (int i = 0; i <= 100; i++)
+	{
+		system("cls");
+		for (int j = 1; j <= i; j++)
+			cout << " ";
+		cout << "  O" << endl;
+		for (int j = 1; j <= i; j++)
+			cout << " ";
+		cout << " <H>" << endl;
+		for (int j = 1; j <= i; j++)
+			cout << " ";
+		cout << " I I";
+		Sleep(100);
+	}
+	return 0;
+}
